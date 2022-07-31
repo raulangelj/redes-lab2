@@ -2,7 +2,7 @@
 from copyreg import constructor
 import socket
 from bitarray import bitarray
-from utils import to_binary, findChecksum
+from utils import to_binary, findChecksum, simple_parity
 
 class Enviar_mensaje:
 	def __init__(self, texto):
@@ -14,6 +14,7 @@ class Enviar_mensaje:
 		self.binary = ''.join(str(i) for i in self.bitarrayy)
 		# find checksum (CREAR FUNCION QUE CAMBIE EL mensaje_enviar PARA QUE SOLO SE TENGO QUE CAMBAIR LA FUNCION)
 		self.check_sum()
+		# self.simple_parity()
 		
 		
 	
@@ -25,6 +26,9 @@ class Enviar_mensaje:
 		self.verificacion()
 		self.ruido()
 		return self.mensaje_enviar
+	
+	def simple_parity(self):
+		self.simpleParity = simple_parity(self.binary)
 
 	def check_sum(self):
 		print('SE HIZO CHECKSUM')

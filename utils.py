@@ -10,6 +10,20 @@ def to_text(binario_a_texto):
   return bitarray(binario_a_texto).tobytes().decode('utf-8')
 
 
+def simple_parity(SentMessage):
+  parity_number = SentMessage[-1]
+  without_parity = SentMessage[:-1]
+  one_count = 0
+
+  for bit in without_parity:
+    if (bit == '1'): one_count += 1
+
+  if (parity_number == '1' and one_count % 2 == 1): return True
+  if (parity_number == '0' and one_count % 2 == 0): return True
+
+  return False
+
+
 # Function to find the Checksum of Sent Message
 
 def findChecksum(SentMessage):
