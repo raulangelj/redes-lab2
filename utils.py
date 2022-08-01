@@ -25,7 +25,7 @@ def simple_parity(SentMessage):
 
 
 # Function to find the Checksum of Sent Message
-
+# Extraido de: https://www.geeksforgeeks.org/implementing-checksum-using-python/amp/
 def findChecksum(SentMessage):
   k = len(SentMessage) // 8
   # Dividing sent message in packets of k bits.
