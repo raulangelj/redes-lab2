@@ -2,7 +2,7 @@
 from copyreg import constructor
 import socket
 from bitarray import bitarray
-from utils import to_binary, findChecksum, simple_parity
+from utils import to_binary, findChecksum, simple_parity, calc_redundant, pos_redundant, calc_parity
 import random
 
 class Enviar_mensaje:
@@ -42,6 +42,18 @@ class Enviar_mensaje:
 	
 	def simple_parity(self):
 		self.simpleParity = simple_parity(self.binary)
+	
+	def hamming_func(self):
+		print('SE HIZO HAMMING')
+		m = len(self.binary)
+		self.hamming = calc_redundant(m)
+		
+		# Determine the positions of Redundant Bits
+		arr = pos_redundant(self.binary, self.hamming)
+		
+		# Determine the parity bits
+		arr = calc_parity(arr, self.hamming)
+		self.mensaje_enviar = f'{self.binary}hamming{self.hamming}'
 
 	def check_sum(self):
 		print('SE HIZO CHECKSUM')
