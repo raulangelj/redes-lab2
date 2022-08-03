@@ -38,7 +38,7 @@ class Enviar_mensaje:
 	def transmitir(self):
 		self.verificacion()
 		self.ruido()
-		self.check_sum()
+		self.hamming_func()
 		return self.mensaje_enviar
 	
 	def simple_parity(self):
