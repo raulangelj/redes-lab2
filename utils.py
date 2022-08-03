@@ -9,6 +9,14 @@ def to_binary(texto_a_binario):
 def to_text(binario_a_texto):
   return bitarray(binario_a_texto).tobytes().decode('utf-8')
 
+def add_parity_bit(SentMessage):
+  message_to_return = SentMessage
+  for bit in SentMessage:
+    if (bit == '1'): one_count += 1
+  if (one_count % 2 == 0): 
+    message_to_return + '0'
+  else:
+    message_to_return + '1'
 
 def simple_parity(SentMessage):
   parity_number = SentMessage[-1]
