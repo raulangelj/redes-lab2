@@ -4,11 +4,12 @@ from utils import to_text, findChecksum, detect_error
 
 class Recibir_mensaje():
 	def __init__(self, binario):
-		# data = binario.split('checksum')
-		data = binario.split('hamming')
+		data = binario.split('checksum')
+		# data = binario.split('hamming')
+		print(data)
 		self.binary = data[0]
-		# self.checksum = data[1]
-		self.hamming = data[1]
+		self.checksum = data[1]
+		# self.hamming = data[1]
 
 	def codificacion(self):
 		# pasar de binario a texto
@@ -21,6 +22,7 @@ class Recibir_mensaje():
 		# TODO algoritmo para verificar mensaje
 		# usamos checksum para verificar
 		self.check_sum()
+		# self.hamming_func()
 	
 	def recibir(self):
 		# TODO recibir de web socket

@@ -15,8 +15,8 @@ class Enviar_mensaje:
 		self.bitarrayy = to_binary(self.texto)
 		self.binary = ''.join(str(i) for i in self.bitarrayy)
 		# find checksum (CREAR FUNCION QUE CAMBIE EL mensaje_enviar PARA QUE SOLO SE TENGO QUE CAMBAIR LA FUNCION)
-		self.check_sum()
 		# self.simple_parity()
+		# self.hamming_func()
 		
 		
 	
@@ -38,6 +38,7 @@ class Enviar_mensaje:
 	def transmitir(self):
 		self.verificacion()
 		self.ruido()
+		self.check_sum()
 		return self.mensaje_enviar
 	
 	def simple_parity(self):
