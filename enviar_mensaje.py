@@ -25,7 +25,6 @@ class Enviar_mensaje:
 		new_binary = ''
 		for i in self.binary:
 			random_num = random.randint(0, self.probabilidad_ruido)
-			print(i)
 			if random_num == random_static_num:
 				binary = int(i)
 				if binary == 0:
