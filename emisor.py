@@ -23,13 +23,15 @@ if __name__ == '__main__':
 	print('host ', host)
 	print('puerto ', puerto)
 	print("Se establecio una coneccion con: ",addr)
+	# TODO INGRESAR CUANTO DE PROBABILIDAD EN EL RUIDO
+	probabilidad_ruido = int(input('Ingrese probabilidad del ruido de 1/'))
 	while True:	
 		while option != 2:
 			print(menu)
 			option = input('¿Que desea hacer?\n>')
 			if option == '1':
 				mensaje = input('Ingrese el mensaje:\n\t>')
-				enviar_mensaje = Enviar_mensaje(mensaje)
+				enviar_mensaje = Enviar_mensaje(mensaje, probabilidad_ruido)
 				mensaje = enviar_mensaje.transmitir()
 				con.send(mensaje.encode())
 				time.sleep(2)

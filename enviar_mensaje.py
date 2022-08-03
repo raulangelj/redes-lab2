@@ -3,10 +3,12 @@ from copyreg import constructor
 import socket
 from bitarray import bitarray
 from utils import to_binary, findChecksum, simple_parity
+import random
 
 class Enviar_mensaje:
-	def __init__(self, texto):
+	def __init__(self, texto, probabilidad_ruido):
 		self.texto = texto
+		self.probabilidad_ruido = probabilidad_ruido
 
 	def verificacion(self):
 		# TODO algoritmos
@@ -19,8 +21,20 @@ class Enviar_mensaje:
 		
 	
 	def ruido(self):
-		# TODO implementar ruido
-		print('ruido')
+		random_static_num = self.probabilidad_ruido - 1
+		new_binary = ''
+		for i in self.binary:
+			random_num = random.randint(0, self.probabilidad_ruido)
+			print(i)
+			if random_num == random_static_num:
+				binary = int(i)
+				if binary == 0:
+					new_binary += '1'
+				else:
+					new_binary += '0'
+			else:
+				new_binary += i
+		self.binary = new_binary
 	
 	def transmitir(self):
 		self.verificacion()
