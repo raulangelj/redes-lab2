@@ -1,3 +1,4 @@
+from tkinter import E
 from bitarray import bitarray
 from utils import to_text, findChecksum, detect_error
 
@@ -13,7 +14,7 @@ class Recibir_mensaje():
 		# pasar de binario a texto
 		try:
 			self.texto = to_text(self.binary)
-		except:
+		except Exception:
 			self.texto = 'No se pudo traducir a texto dado a que el ruido aplicado causó caracteres fuera del encode utf-32'
 	
 	def verificacion(self):
